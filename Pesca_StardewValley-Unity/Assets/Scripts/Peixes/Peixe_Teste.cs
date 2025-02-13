@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Peixe_Teste : MonoBehaviour
 {
@@ -9,11 +10,15 @@ public class Peixe_Teste : MonoBehaviour
     [SerializeField] float maxVelocity;
 
     private Rigidbody2D rb;
+
+    public Slider progressBar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         DefaultCrazyness = crazyness;
         rb = GetComponent<Rigidbody2D>();
+
+        progressBar.value = 0.2f;
     }
 
     // Update is called once per frame
@@ -37,6 +42,7 @@ public class Peixe_Teste : MonoBehaviour
         if (collision.gameObject.tag == "Hook")
         {
             StartCoroutine(moreCrazyness());
+            StartCoroutine(progressUp());
         }
         if (collision.gameObject.tag == "Down")
         {
@@ -54,6 +60,7 @@ public class Peixe_Teste : MonoBehaviour
         if (collision.gameObject.tag == "Hook")
         {
             StartCoroutine(lessCrazyness());
+            StartCoroutine(progressDown());
         }
     }
 
@@ -78,6 +85,30 @@ public class Peixe_Teste : MonoBehaviour
             crazyness -= 2f;
             yield return new WaitForSeconds(0.5f);
             StartCoroutine("lessCrazyness");
+        }
+        yield return new WaitForSeconds(0);
+    }
+
+    IEnumerator progressUp()
+    {
+        StopCoroutine("progressDown");
+        if (progressBar.value < 1)
+        {
+            progressBar.value += 0.03f;
+            yield return new WaitForSeconds(0.1f);
+            StartCoroutine("progressUp");
+        }
+        yield return new WaitForSeconds(0);
+    }
+
+    IEnumerator progressDown()
+    {
+        StopCoroutine("progressUp");
+        if (progressBar.value > 0)
+        {
+            progressBar.value -= 0.03f;
+            yield return new WaitForSeconds(0.15f);
+            StartCoroutine("progressDown");
         }
         yield return new WaitForSeconds(0);
     }

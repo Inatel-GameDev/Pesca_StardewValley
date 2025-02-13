@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
+
 public class Player_Movement : MonoBehaviour
 {
     [SerializeField] float jumpForce = 0.1f;
@@ -23,6 +24,5 @@ public class Player_Movement : MonoBehaviour
         // Move the player
         rb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
     }
-
 
 }
