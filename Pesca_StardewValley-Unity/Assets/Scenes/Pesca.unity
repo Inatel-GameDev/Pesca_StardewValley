@@ -397,6 +397,7 @@ MonoBehaviour:
   crazyness: 8
   DefaultCrazyness: 0
   maxVelocity: 2
+  progressBar: {fileID: 866373063}
 --- !u!50 &142004696
 Rigidbody2D:
   serializedVersion: 5
@@ -979,7 +980,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 0.1
-  progressBar: {fileID: 866373063}
 --- !u!1 &750608044
 GameObject:
   m_ObjectHideFlags: 0
