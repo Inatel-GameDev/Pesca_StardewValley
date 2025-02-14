@@ -8,6 +8,8 @@ public class Peixe_Teste : MonoBehaviour
     [SerializeField] float crazyness;
     [SerializeField] float DefaultCrazyness;
     [SerializeField] float maxVelocity;
+    [SerializeField] public GameObject hookPrefab;
+    [SerializeField] public Inventory inventory;
 
     private Rigidbody2D rb;
 
@@ -19,6 +21,16 @@ public class Peixe_Teste : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         progressBar.value = 0.2f;
+    }
+
+    private void Update()
+    {
+        if (progressBar.value == 1)
+        {
+            progressBar.value = 0;
+            inventory.AddFish();
+            hookPrefab.SetActive(false);
+        }
     }
 
     // Update is called once per frame

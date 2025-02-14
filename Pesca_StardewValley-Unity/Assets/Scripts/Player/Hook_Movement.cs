@@ -2,7 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 
-public class Player_Movement : MonoBehaviour
+public class Hook_Movement : MonoBehaviour
 {
     [SerializeField] float jumpForce = 0.1f;
 
