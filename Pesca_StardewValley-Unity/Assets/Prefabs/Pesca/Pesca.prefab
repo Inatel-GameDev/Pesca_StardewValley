@@ -1131,6 +1131,9 @@ MonoBehaviour:
   crazyness: 8
   DefaultCrazyness: 0
   maxVelocity: 2
+  hookPrefab: {fileID: 4084108253816033856}
+  inventory: {fileID: 0}
+  player: {fileID: 0}
   progressBar: {fileID: 6001492584924159919}
 --- !u!50 &2299493600113310337
 Rigidbody2D:

@@ -10,6 +10,7 @@ public class Peixe_Teste : MonoBehaviour
     [SerializeField] float maxVelocity;
     [SerializeField] public GameObject hookPrefab;
     [SerializeField] public Inventory inventory;
+    [SerializeField] public Player player;
 
     private Rigidbody2D rb;
 
@@ -17,6 +18,8 @@ public class Peixe_Teste : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GameObject.Find("Player").GetComponent<Player>();
+        inventory = GameObject.Find("Player").GetComponent<Inventory>();
         DefaultCrazyness = crazyness;
         rb = GetComponent<Rigidbody2D>();
 
@@ -27,9 +30,15 @@ public class Peixe_Teste : MonoBehaviour
     {
         if (progressBar.value == 1)
         {
+            player.PlayAnimation(player.idle);
             progressBar.value = 0;
             inventory.AddFish();
-            hookPrefab.SetActive(false);
+            Destroy(hookPrefab);
+        }
+        if(progressBar.value == 0)
+        {
+            player.PlayAnimation(player.idle);
+            Destroy(hookPrefab);
         }
     }
 
