@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VegettiCabeçudo : MonoBehaviour
+public class VegettiCabeçudo : PeixeGenerico
 {
     public float defaultCrazyness;
     public float crazyness;
@@ -15,18 +15,18 @@ public class VegettiCabeçudo : MonoBehaviour
         this.rb = rb;
     }
 
-    public void move()
+    public override void move()
     {
         Vector2 force = new Vector2(0f, Random.Range(-crazyness, crazyness));
         rb.AddForce(force);
     }
 
-    public void startTriggerFish()
+    public override void startTriggerFish()
     {
         StartCoroutine(moreCrazyness());
     }
 
-    public void stopTriggerFish()
+    public override void stopTriggerFish()
     {
         StartCoroutine(lessCrazyness());
     }
