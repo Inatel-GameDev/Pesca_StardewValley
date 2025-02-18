@@ -12,7 +12,7 @@ public class Peixe : MonoBehaviour
     [SerializeField] public GameObject hookPrefab;
     [SerializeField] public Inventory inventory;
     [SerializeField] public Player player;
-    VegettiCabeçudo vegetti;
+    VegettiCabeÃ§udo vegetti;
 
     private Rigidbody2D rb;
 
@@ -25,9 +25,9 @@ public class Peixe : MonoBehaviour
         DefaultCrazyness = crazyness;
         rb = GetComponent<Rigidbody2D>();
         progressBar.value = 0.2f;
-        // Criando um novo GameObject e adicionando o script VegettiCabeçudo corretamente
-        GameObject vegettiObj = new GameObject("VegettiCabeçudo");
-        vegetti = vegettiObj.AddComponent<VegettiCabeçudo>();
+        // Criando um novo GameObject e adicionando o script VegettiCabeÃ§udo corretamente
+        GameObject vegettiObj = new GameObject("VegettiCabeÃ§udo");
+        vegetti = vegettiObj.AddComponent<VegettiCabeÃ§udo>();
 
         // Agora podemos inicializar os valores
         vegetti.Setup(DefaultCrazyness, crazyness, rb);
@@ -40,11 +40,13 @@ public class Peixe : MonoBehaviour
             player.PlayAnimation(player.idle);
             inventory.AddFish();
             Destroy(hookPrefab);
+            player.isFishing = false;
         }
         if(progressBar.value == 0)
         {
             player.PlayAnimation(player.idle);
             Destroy(hookPrefab);
+            player.isFishing = false;
         }
     }
 
@@ -53,7 +55,7 @@ public class Peixe : MonoBehaviour
     {
         if(vegetti != null)
             vegetti.move();
-        // Segurança de velocidade para não deixar o peixe sair da tela
+        // SeguranÃ§a de velocidade para nÃ£o deixar o peixe sair da tela
         if (rb.linearVelocityY > maxVelocity)
         {
             rb.linearVelocityY = maxVelocity;

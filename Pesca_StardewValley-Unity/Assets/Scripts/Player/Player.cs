@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public string idle = "IDLE";
     public string trowHook = "TROWHOOK";
     public string fishing = "FISHING";
+    public bool isFishing = false;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour
     public void PlayAnimation(string animation)
     {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName(animation))
-            return; // Evita que a mesma animação seja reproduzida repetidamente
+            return; // Evita que a mesma animaÃ§Ã£o seja reproduzida repetidamente
 
         anim.Play(animation);
         StartCoroutine(WaitForAnimation(animation));
@@ -27,21 +28,22 @@ public class Player : MonoBehaviour
 
     IEnumerator WaitForAnimation(string animation)
     {
-        yield return new WaitForEndOfFrame(); // Espera um frame para garantir que a animação foi ativada
+        yield return new WaitForEndOfFrame(); // Espera um frame para garantir que a animaÃ§Ã£o foi ativada
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         yield return new WaitForSeconds(stateInfo.length);
 
-        // Aqui você pode fazer algo após a animação acabar
+        // Aqui vocÃª pode fazer algo apÃ³s a animaÃ§Ã£o acabar
         if (animation == trowHook)
         {
-            PlayAnimation(fishing); // Exemplo: Mudar para estado de "pescando" após lançar o anzol
+            PlayAnimation(fishing); // Exemplo: Mudar para estado de "pescando" apÃ³s lanÃ§ar o anzol
         }
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !isFishing)
         {
+            isFishing = true;
             PlayAnimation(trowHook);
             Instantiate(hookPrefab, new Vector3(2.5f,0,0), Quaternion.identity);
         }
