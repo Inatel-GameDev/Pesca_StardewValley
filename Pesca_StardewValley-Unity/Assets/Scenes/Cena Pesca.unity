@@ -529,6 +529,7 @@ MonoBehaviour:
   idle: IDLE
   trowHook: TROWHOOK
   fishing: FISHING
+  isFishing: 0
 --- !u!114 &1261222972
 MonoBehaviour:
   m_ObjectHideFlags: 0
