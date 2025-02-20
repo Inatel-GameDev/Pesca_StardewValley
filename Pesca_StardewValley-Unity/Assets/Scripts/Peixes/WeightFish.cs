@@ -11,45 +11,47 @@ public class WeightFish : MonoBehaviour
     public float weight;
     Rigidbody2D rb;
 
-    public void Setup(float DefaultCrazyness, float crazyness, Rigidbody2D rb, float weight)
+    public void Setup(GenericalFish fish, Rigidbody2D rb)
     {
         // O valor de crazynees original que o peixe vai rodar em volta
-        this.defaultCrazyness = DefaultCrazyness;
+        this.defaultCrazyness = fish.crazyness;
         // Valor flutuante de loucura do peixe
-        this.crazyness = crazyness;
+        this.crazyness = fish.crazyness;
         this.rb = rb;
-        this.weight = weight;   
+        this.weight = fish.weight;
+        this.crazynessIncrease = fish.crazynessIncrease;
+        this.maxCrazyness = fish.maxCrazyness;
     }
 
     public void move()
     {
         Vector2 force;
-        // Sobe loco
+        // leve
+        Debug.Log("Weight: " + weight);
         if (weight < 15f)
         {
             if (rb.position.y <= 0)
             {
-                force = new Vector2(0f, Random.Range(0, (weight/10) * crazyness));
+                force = new Vector2(0f, Random.Range(0, (weight * 10f) * crazyness));
             }
             else
             {
                 force = new Vector2(0f, Random.Range(-crazyness, 0));
             }
             }
-        else if (weight > 15f)
+        else
         {
             if (rb.position.y <= 0)
             {
                 force = new Vector2(0f, Random.Range(0,crazyness));
+                Debug.Log("ForceDown: " + force);
             }
             else
             {
-                force = new Vector2(0f, Random.Range(-crazyness * (30-weight / 10), 0));
+                force = new Vector2(0f, Random.Range(-crazyness * ((weight - 14) * 10f), 0));
+                Debug.Log("ForceUp: " + force);
             }
         }
-        else
-            force = new Vector2(0f, Random.Range(-crazyness, crazyness));
-        rb.AddForce(force);
     }
 
     public void startTriggerFish()
@@ -60,6 +62,19 @@ public class WeightFish : MonoBehaviour
     public void stopTriggerFish()
     {
         StartCoroutine(lessCrazyness());
+        Debug.Log("Crazyness: " + crazyness);
+        if (weight < 15f)
+        {
+            Vector2 force;
+            force = new Vector2(0f, Random.Range(-crazyness, (weight*5f)*crazyness));
+            rb.AddForce(force);
+        }
+        else
+        {
+            Vector2 force;
+            force = new Vector2(0f, Random.Range(-crazyness * ((weight-14)*5f), crazyness));
+            rb.AddForce(force);
+        }
     }
 
     IEnumerator moreCrazyness()

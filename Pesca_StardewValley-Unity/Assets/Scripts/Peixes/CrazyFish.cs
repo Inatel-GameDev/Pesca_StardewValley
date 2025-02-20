@@ -8,10 +8,10 @@ public class CrazyFish : MonoBehaviour
     public float crazyness;
     Rigidbody2D rb;
 
-    public void Setup(float DefaultCrazyness, float crazyness, Rigidbody2D rb)
+    public void Setup(GenericalFish fish, Rigidbody2D rb)
     {
-        this.defaultCrazyness = DefaultCrazyness;
-        this.crazyness = crazyness;
+        this.defaultCrazyness = fish.crazyness;
+        this.crazyness = fish.crazyness;
         this.rb = rb;
     }
 

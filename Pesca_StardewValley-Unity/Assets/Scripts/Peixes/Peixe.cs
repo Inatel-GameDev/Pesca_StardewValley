@@ -6,6 +6,8 @@ public class Peixe : MonoBehaviour
 {
 
     [SerializeField] float crazyness;
+    [SerializeField] float maxCrazyness;
+    [SerializeField] float crazynessIncrease;
     [SerializeField] float DefaultCrazyness;
     [SerializeField] float maxVelocity;
     [SerializeField] float upDownSecurity;
@@ -16,12 +18,23 @@ public class Peixe : MonoBehaviour
     WeightFish weightFish;
     int randomFish;
 
+    // Os fishs
+    [SerializeField] GenericalFish[] fishes;
+
     private Rigidbody2D rb;
 
     public Slider progressBar;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // Os fishes
+        fishes = new GenericalFish[]
+        {
+            new GenericalFish("Vegetty Cabeçudo",5,"Heavy",30,30,0.2f,"Crazy"),
+            new GenericalFish("Good",5,"Heavy",30,30,0.2f,"Weight"),
+            new GenericalFish("Lambari", 1,"Float",5,20,0.1f,"Weight")
+        };
+
         player = GameObject.Find("Player").GetComponent<Player>();
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
         DefaultCrazyness = crazyness;
@@ -33,11 +46,11 @@ public class Peixe : MonoBehaviour
 
         // Sorteio? Que sorteio? de qual peixe vai ser
         // Peixe 0 = Crazy fish - Peixe 1 = Weight fish
-        randomFish = Random.Range(0, 2);
+        randomFish = Random.Range(0, fishes.Length);
 
         // Agora podemos inicializar os valores
-        crazyIwasCrazyOnce.Setup(DefaultCrazyness, crazyness, rb);
-        weightFish.Setup(DefaultCrazyness, crazyness, rb,30); // Vai ser o good peixe tubarãO
+        crazyIwasCrazyOnce.Setup(fishes[randomFish], rb);
+        weightFish.Setup(fishes[randomFish], rb); // Vai ser o good peixe tubarãO
     }
 
     private void Update()
@@ -60,17 +73,22 @@ public class Peixe : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
-        if(randomFish == 0)
+        Debug.Log(fishes[randomFish].name);
+        if (fishes[randomFish].classFish == "Crazy")
         {
-            Debug.Log("Crazy? I was crazy once. They lockedme in a room");
+            //Debug.Log("Crazy? I was crazy once. They lockedme in a room");
             if (crazyIwasCrazyOnce != null)
                 crazyIwasCrazyOnce.move();
+            else
+                Debug.Log("Crazy fish is null");
         }
-        else if (randomFish == 1)
+        else
         {
-            Debug.Log("Weight fish");
+            //Debug.Log("Weight fish");
             if (weightFish != null)
                 weightFish.move();
+            else
+                Debug.Log("Weight fish is null");
         }
         // Segurança de velocidade para não deixar o peixe sair da tela
         if (rb.linearVelocityY > maxVelocity)
@@ -88,16 +106,17 @@ public class Peixe : MonoBehaviour
     {
         if (collision.gameObject.tag == "Hook")
         {
-            if (randomFish == 0)
+            if (fishes[randomFish].classFish == "Crazy")
             {
                 if (crazyIwasCrazyOnce != null)
                     crazyIwasCrazyOnce.startTriggerFish();
             }
-            else if (randomFish == 1)
+            else
             {
                 if (weightFish != null)
                     weightFish.startTriggerFish();
             }
+            StartCoroutine(progressUp());
         }
         if (collision.gameObject.tag == "Down")
         {
@@ -114,12 +133,12 @@ public class Peixe : MonoBehaviour
     {
         if (collision.gameObject.tag == "Hook")
         {
-            if (randomFish == 0)
+            if (fishes[randomFish].classFish == "Crazy")
             {
                 if (crazyIwasCrazyOnce != null)
                     crazyIwasCrazyOnce.stopTriggerFish();
             }
-            else if (randomFish == 1)
+            else
             {
                 if (weightFish != null)
                     weightFish.stopTriggerFish();

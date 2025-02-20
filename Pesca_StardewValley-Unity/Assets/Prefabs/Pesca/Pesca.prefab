@@ -1129,7 +1129,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crazyness: 8
-  DefaultCrazyness: 0
+  maxCrazyness: 15
+  crazynessIncrease: 0.2
+  DefaultCrazyness: 8
   maxVelocity: 2
   upDownSecurity: 0.7
   hookPrefab: {fileID: 4084108253816033856}
