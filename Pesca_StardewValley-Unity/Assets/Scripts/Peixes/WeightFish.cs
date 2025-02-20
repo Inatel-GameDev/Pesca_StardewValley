@@ -26,32 +26,35 @@ public class WeightFish : MonoBehaviour
     public void move()
     {
         Vector2 force;
+        Debug.Log("Force: " + crazyness * 4f);
         // leve
         Debug.Log("Weight: " + weight);
         if (weight < 15f)
         {
-            if (rb.position.y <= 0)
+            if (rb.position.y < 0)
             {
-                force = new Vector2(0f, Random.Range(0, (weight * 10f) * crazyness));
+                force = new Vector2(0f, Random.Range(-crazyness, (weight*2) * crazyness));
             }
             else
             {
-                force = new Vector2(0f, Random.Range(-crazyness, 0));
+                force = new Vector2(0f, Random.Range(-crazyness, crazyness)+0.5f);
             }
             }
         else
         {
             if (rb.position.y <= 0)
             {
-                force = new Vector2(0f, Random.Range(0,crazyness));
+                force = new Vector2(0f, Random.Range(-crazyness,crazyness) - 0.5f);
                 Debug.Log("ForceDown: " + force);
             }
             else
             {
-                force = new Vector2(0f, Random.Range(-crazyness * ((weight - 14) * 10f), 0));
+                Debug.Log("good: " + -crazyness * ((weight - 14) * 2));
+                force = new Vector2(0f, Random.Range(-crazyness * ((weight - 14)*2), crazyness) );
                 Debug.Log("ForceUp: " + force);
             }
         }
+        rb.AddForce(force);
     }
 
     public void startTriggerFish()
@@ -66,13 +69,13 @@ public class WeightFish : MonoBehaviour
         if (weight < 15f)
         {
             Vector2 force;
-            force = new Vector2(0f, Random.Range(-crazyness, (weight*5f)*crazyness));
+            force = new Vector2(0f, Random.Range(-crazyness, (weight)*crazyness));
             rb.AddForce(force);
         }
         else
         {
             Vector2 force;
-            force = new Vector2(0f, Random.Range(-crazyness * ((weight-14)*5f), crazyness));
+            force = new Vector2(0f, Random.Range(-crazyness * ((weight-14)), crazyness));
             rb.AddForce(force);
         }
     }
