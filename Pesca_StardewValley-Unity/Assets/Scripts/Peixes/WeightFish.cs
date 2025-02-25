@@ -26,9 +26,9 @@ public class WeightFish : MonoBehaviour
     public void move()
     {
         Vector2 force;
-        Debug.Log("Force: " + crazyness * 4f);
+        //Debug.Log("Force: " + crazyness * 4f);
         // leve
-        Debug.Log("Weight: " + weight);
+        //Debug.Log("Weight: " + weight);
         if (weight < 15f)
         {
             if (rb.position.y < 0)
@@ -45,13 +45,13 @@ public class WeightFish : MonoBehaviour
             if (rb.position.y <= 0)
             {
                 force = new Vector2(0f, Random.Range(-crazyness,crazyness) - 0.5f);
-                Debug.Log("ForceDown: " + force);
+                //Debug.Log("ForceDown: " + force);
             }
             else
             {
-                Debug.Log("good: " + -crazyness * ((weight - 14) * 2));
+                //Debug.Log("good: " + -crazyness * ((weight - 14) * 2));
                 force = new Vector2(0f, Random.Range(-crazyness * ((weight - 14)*2), crazyness) );
-                Debug.Log("ForceUp: " + force);
+               // Debug.Log("ForceUp: " + force);
             }
         }
         rb.AddForce(force);
@@ -65,7 +65,7 @@ public class WeightFish : MonoBehaviour
     public void stopTriggerFish()
     {
         StartCoroutine(lessCrazyness());
-        Debug.Log("Crazyness: " + crazyness);
+        //Debug.Log("Crazyness: " + crazyness);
         if (weight < 15f)
         {
             Vector2 force;

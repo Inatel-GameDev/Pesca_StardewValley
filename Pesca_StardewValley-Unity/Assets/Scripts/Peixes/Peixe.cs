@@ -12,29 +12,30 @@ public class Peixe : MonoBehaviour
     [SerializeField] float maxVelocity;
     [SerializeField] float upDownSecurity;
     [SerializeField] public GameObject hookPrefab;
-    [SerializeField] public Inventory inventory;
-    [SerializeField] public Player player;
+    [SerializeField] public GameObject notaPrefab;
+    public Inventory inventory;
+    public Player player;
+    [SerializeField] public NotaDePesca nota;
     CrazyFish crazyIwasCrazyOnce;
     WeightFish weightFish;
     int randomFish;
 
     // Os fishs
-    [SerializeField] GenericalFish[] fishes;
-
-    private Rigidbody2D rb;
-
-    public Slider progressBar;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        // Os fishes
-        fishes = new GenericalFish[]
+    [SerializeField] public GenericalFish[] fishes = new GenericalFish[]
         {
             new GenericalFish("Vegetty Cabeçudo",5,"Heavy",30,30,0.2f,"Crazy"),
             new GenericalFish("Good",5,"Heavy",30,30,0.2f,"Weight"),
             new GenericalFish("Lambari", 1,"Float",5,20,0.1f,"Weight")
         };
-
+    [SerializeField] public string[] fishName;
+    [SerializeField] public Sprite[] fishesImages;
+    [SerializeField] public string[] fishesText;
+    bool notaOn = false;
+    private Rigidbody2D rb;
+    public Slider progressBar;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
         player = GameObject.Find("Player").GetComponent<Player>();
         inventory = GameObject.Find("Player").GetComponent<Inventory>();
         DefaultCrazyness = crazyness;
@@ -55,16 +56,36 @@ public class Peixe : MonoBehaviour
 
     private void Update()
     {
-        if (progressBar.value == 1)
+        if (progressBar.value == 1 && !notaOn)
         {
-            player.PlayAnimation(player.idle);
-            inventory.AddFish();
-            Destroy(hookPrefab);
-            player.isFishing = false;
+            Instantiate(notaPrefab, new Vector3(0, 3f, 0), Quaternion.identity);
         }
         if(progressBar.value == 0)
         {
             player.PlayAnimation(player.idle);
+            Destroy(hookPrefab);
+            player.isFishing = false;
+        }
+        GameObject canvasNota = GameObject.Find("CanvasNota(Clone)");
+        if (canvasNota != null)
+        {
+            Image[] noteImage = canvasNota.GetComponentsInChildren<Image>();
+            Text[] texts = canvasNota.GetComponentsInChildren<Text>();
+
+            if (randomFish < fishName.Length)
+            {
+                Debug.Log(fishName[randomFish]);
+                Debug.Log(fishesText[randomFish]);
+                noteImage[1].sprite = fishesImages[randomFish];
+                texts[0].text = fishesText[randomFish];
+                texts[1].text = fishName[randomFish];
+                notaOn = true;
+            }
+        }
+        if (progressBar.value == 1)
+        {
+            player.PlayAnimation(player.idle);
+            inventory.AddFish();
             Destroy(hookPrefab);
             player.isFishing = false;
         }

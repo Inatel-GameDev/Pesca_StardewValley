@@ -1135,8 +1135,23 @@ MonoBehaviour:
   maxVelocity: 2
   upDownSecurity: 0.7
   hookPrefab: {fileID: 4084108253816033856}
+  notaPrefab: {fileID: 1825900918598912656, guid: 7ef89d20e71524c4c91ab97b73911c77, type: 3}
   inventory: {fileID: 0}
   player: {fileID: 0}
+  nota: {fileID: 0}
+  fishName:
+  - "Vegetti Cabe\xE7udo"
+  - Mini Good
+  - Lambari
+  fishesImages:
+  - {fileID: -3342433090404875214, guid: 810acf35f8408504e8b4e065a5b3738f, type: 3}
+  - {fileID: -7529463495887699956, guid: 455d1d85f4043e545875cadd31226a8b, type: 3}
+  - {fileID: 1426126370454856361, guid: 0116f4d682269a34eaef169767663028, type: 3}
+  fishesText:
+  - Peixe que carrega o "Gigante da Colina" nas costas $50,00
+  - "Parece um mini tubar\xE3o mas tem uma estranha atra\xE7\xE3o por ma\xE7\xE3s
+    e pela cor amarela $40,00"
+  - Um pequeno peixe leve e tranqulo $35,00
   progressBar: {fileID: 6001492584924159919}
 --- !u!50 &2299493600113310337
 Rigidbody2D:
