@@ -23,9 +23,11 @@ public class Peixe : MonoBehaviour
     // Os fishs
     [SerializeField] public GenericalFish[] fishes = new GenericalFish[]
         {
-            new GenericalFish("Vegetty Cabeçudo",5,"Heavy",30,30,0.2f,"Crazy"),
-            new GenericalFish("Good",5,"Heavy",30,30,0.2f,"Weight"),
-            new GenericalFish("Lambari", 1,"Float",5,20,0.1f,"Weight")
+            new GenericalFish("Vegetty Cabeçudo",5,"Heavy",30,30,0.2f,"Crazy",50),
+            new GenericalFish("Good",5,"Heavy",30,30,0.2f,"Weight",40),
+            new GenericalFish("Lambari", 1,"Float",5,20,0.1f,"Weight",35),
+            new GenericalFish("Baiacu",15,"Float",1.5f,30,0.01f,"Weight",50),
+            new GenericalFish("Piranha",30, "Float",13.7f,70,0.5f,"Weight",70)
         };
     [SerializeField] public string[] fishName;
     [SerializeField] public Sprite[] fishesImages;
@@ -84,6 +86,7 @@ public class Peixe : MonoBehaviour
         }
         if (progressBar.value == 1)
         {
+            player.money += fishes[randomFish].price;
             player.PlayAnimation(player.idle);
             inventory.AddFish();
             Destroy(hookPrefab);
@@ -167,38 +170,12 @@ public class Peixe : MonoBehaviour
             StartCoroutine(progressDown());
         }
     }
-    /*
-    IEnumerator moreCrazyness()
-    {
-        Debug.Log("Crazyness: " + crazyness);
-        StopCoroutine("lessCrazyness");
-        if (crazyness < 30f)
-        {
-            Debug.Log("Crazyness: " + crazyness);
-            crazyness += 2f;
-            yield return new WaitForSeconds(1f);
-            StartCoroutine("moreCrazyness");
-        }
-        yield return new WaitForSeconds(0);
-    }
-    IEnumerator lessCrazyness()
-    {
-        StopCoroutine("moreCrazyness");
-        if (crazyness > DefaultCrazyness)
-        {
-            crazyness -= 2f;
-            yield return new WaitForSeconds(0.5f);
-            StartCoroutine("lessCrazyness");
-        }
-        yield return new WaitForSeconds(0);
-    }
-    */
     IEnumerator progressUp()
     {
         StopCoroutine("progressDown");
         if (progressBar.value < 1)
         {
-            progressBar.value += 0.03f;
+            progressBar.value += 0.018f;
             yield return new WaitForSeconds(0.1f);
             StartCoroutine("progressUp");
         }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -10,11 +11,14 @@ public class Player : MonoBehaviour
     public string trowHook = "TROWHOOK";
     public string fishing = "FISHING";
     public bool isFishing = false;
+    public float money;
+    public Text moneyUI;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         PlayAnimation(idle);
+        money = 0f;
     }
 
     public void PlayAnimation(string animation)
@@ -48,5 +52,6 @@ public class Player : MonoBehaviour
             PlayAnimation(trowHook);
             Instantiate(hookPrefab, new Vector3(2.5f,0,0), Quaternion.identity);
         }
+        moneyUI.text = "R$"+ money.ToString("F2");
     }
 }

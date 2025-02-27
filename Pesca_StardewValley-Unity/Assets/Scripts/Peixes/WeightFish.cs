@@ -37,14 +37,14 @@ public class WeightFish : MonoBehaviour
             }
             else
             {
-                force = new Vector2(0f, Random.Range(-crazyness, crazyness)+0.5f);
+                force = new Vector2(0f, Random.Range(-crazyness, crazyness) + 0.2f);
             }
             }
         else
         {
             if (rb.position.y <= 0)
             {
-                force = new Vector2(0f, Random.Range(-crazyness,crazyness) - 0.5f);
+                force = new Vector2(0f, Random.Range(-crazyness, crazyness) - 0.2f);
                 //Debug.Log("ForceDown: " + force);
             }
             else

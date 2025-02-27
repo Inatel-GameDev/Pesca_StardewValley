@@ -10,7 +10,8 @@ public class GenericalFish
     public float maxCrazyness;
     public float crazynessIncrease;
     public string classFish;
-    public GenericalFish(string name, float crazyness, string classWeight, float weight, float maxCrazyness, float crazynessIncrease, string classFish)
+    public float price;
+    public GenericalFish(string name, float crazyness, string classWeight, float weight, float maxCrazyness, float crazynessIncrease, string classFish, float price)
     {
         this.name = name;
         this.crazyness = crazyness;
@@ -19,6 +20,7 @@ public class GenericalFish
         this.maxCrazyness = maxCrazyness;
         this.crazynessIncrease = crazynessIncrease;
         this.classFish = classFish;
+        this.price = price;
     }
 
 }
