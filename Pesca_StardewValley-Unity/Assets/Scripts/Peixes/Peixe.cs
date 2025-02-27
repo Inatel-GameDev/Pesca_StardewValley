@@ -27,7 +27,7 @@ public class Peixe : MonoBehaviour
             new GenericalFish("Good",5,"Heavy",30,30,0.2f,"Weight",40),
             new GenericalFish("Lambari", 1,"Float",5,20,0.1f,"Weight",35),
             new GenericalFish("Baiacu",15,"Float",1.5f,30,0.01f,"Weight",50),
-            new GenericalFish("Piranha",30, "Float",13.7f,70,0.5f,"Weight",70)
+            new GenericalFish("Piranha",25, "Float",13.7f,70,0.4f,"Weight",70)
         };
     [SerializeField] public string[] fishName;
     [SerializeField] public Sprite[] fishesImages;

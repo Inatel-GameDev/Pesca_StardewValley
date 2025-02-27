@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         GameObject canvasNota = GameObject.Find("CanvasNota(Clone)");
-        if (Input.GetMouseButtonDown(0) && !isFishing && canvasNota == null)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.E)) && !isFishing && canvasNota == null)
         {
             isFishing = true;
             PlayAnimation(trowHook);

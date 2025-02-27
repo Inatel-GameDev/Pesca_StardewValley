@@ -484,7 +484,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Interagir -> E
+  m_Text: "Interagir -> Barra de espa\xE7o"
 --- !u!222 &358016519
 CanvasRenderer:
   m_ObjectHideFlags: 0
