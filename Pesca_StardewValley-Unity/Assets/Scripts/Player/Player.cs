@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public float gerarPesca; //determina a posição do minigame
     public float gerarBoia; //determina a posição da boia
+    public Boia boia;
 
     void Start()
     {
@@ -46,7 +47,7 @@ public class Player : MonoBehaviour
         movement.y = Input.GetAxisRaw("Vertical");
 
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        if(movement.x > 0)
+        if(movement.x >= 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
             gerarPesca = -2f; //gera na esquerda
@@ -84,16 +85,30 @@ public class Player : MonoBehaviour
             PlayAnimation(fishing); // Exemplo: Mudar para estado de "pescando" após lançar o anzol
         }
     }
+    
+    public void comecaPescar()
+    {
+        PlayAnimation(trowHook);
+        Instantiate(hookPrefab, new Vector3(gerarPesca, 1, 0), Quaternion.identity);
+    }
 
-    void Update()
+    void FixedUpdate()
     {
         GameObject canvasNota = GameObject.Find("CanvasNota(Clone)");
-        if ((Input.GetMouseButtonDown(0) || Input.GetKey(KeyCode.E)) && !isFishing && canvasNota == null)
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && !isFishing && canvasNota == null)
         {
             isFishing = true;
-            PlayAnimation(trowHook);
-            Instantiate(boiaPrefab, new Vector3(gerarBoia, (rb.position.y - 0.5f), 0), Quaternion.identity);
-            Instantiate(hookPrefab, new Vector3(gerarPesca,1,0), Quaternion.identity);
+            Instantiate(boiaPrefab, new Vector3(gerarBoia*10, (rb.position.y - 0.5f), 0), Quaternion.identity);
+            boia = GameObject.Find("Boia(Clone)").GetComponent<Boia>();
+            boia.move(gerarBoia, (rb.position.y));
+            //Debug.Log(boia.landWater());
+            //if (boia.landWater() == true)
+            //{
+            //    cPlayAnimation(trowHook);
+            //    Instantiate(hookPrefab, new Vector3(gerarPesca, 1, 0), Quaternion.identity);
+            //}
+            //else
+            //    isFishing = false;
         }
         moneyUI.text = "R$"+ money.ToString("F2");
 

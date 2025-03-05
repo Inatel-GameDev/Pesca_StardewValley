@@ -58,16 +58,34 @@ public class Peixe : MonoBehaviour
 
     private void Update()
     {
+        // Verifica se a boia já foi atribuída
+        GameObject boiaInstance = GameObject.Find("Boia(Clone)");
+
+        // Instancia a nota se o progresso for 1 e ainda não tiver sido criada
         if (progressBar.value == 1 && !notaOn)
         {
             Instantiate(notaPrefab, new Vector3(0, 3f, 0), Quaternion.identity);
         }
-        if(progressBar.value == 0)
+
+        // Se o progresso for 0, finaliza a pesca e destrói os objetos
+        if (progressBar.value == 0)
         {
             player.PlayAnimation(player.idle);
-            Destroy(hookPrefab);
             player.isFishing = false;
+
+            // Destroi a boia apenas se a referência não for nula
+            if (boiaInstance != null)
+            {
+                Destroy(boiaInstance);
+            }
+
+            // Destroi o hook se a referência não for nula
+            if (hookPrefab != null)
+            {
+                Destroy(hookPrefab);
+            }
         }
+
         GameObject canvasNota = GameObject.Find("CanvasNota(Clone)");
         if (canvasNota != null)
         {
@@ -76,8 +94,6 @@ public class Peixe : MonoBehaviour
 
             if (randomFish < fishName.Length)
             {
-                Debug.Log(fishName[randomFish]);
-                Debug.Log(fishesText[randomFish]);
                 noteImage[1].sprite = fishesImages[randomFish];
                 texts[0].text = fishesText[randomFish];
                 texts[1].text = fishName[randomFish];
@@ -89,15 +105,18 @@ public class Peixe : MonoBehaviour
             player.money += fishes[randomFish].price;
             player.PlayAnimation(player.idle);
             inventory.AddFish();
-            Destroy(hookPrefab);
             player.isFishing = false;
+            if (boiaInstance != null)
+            {
+                Destroy(boiaInstance);
+            }
+            Destroy(hookPrefab);
         }
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        Debug.Log(fishes[randomFish].name);
         if (fishes[randomFish].classFish == "Crazy")
         {
             //Debug.Log("Crazy? I was crazy once. They lockedme in a room");
