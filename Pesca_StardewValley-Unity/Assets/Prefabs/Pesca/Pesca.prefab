@@ -1205,6 +1205,7 @@ MonoBehaviour:
   upDownSecurity: 0.7
   hookPrefab: {fileID: 4084108253816033856}
   notaPrefab: {fileID: 1825900918598912656, guid: 7ef89d20e71524c4c91ab97b73911c77, type: 3}
+  boiaPrefab: {fileID: 3582232293399724276, guid: e7d03a760f9be1e45b0dffe0d3fc5ef6, type: 3}
   inventory: {fileID: 0}
   player: {fileID: 0}
   nota: {fileID: 0}

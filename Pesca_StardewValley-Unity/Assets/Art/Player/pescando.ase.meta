@@ -125,15 +125,15 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: pescando
     originalName: 
-    pivot: {x: 0.49600002, y: 0.5}
+    pivot: {x: 0.24587548, y: 0.5268705}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 4
+      x: 3
       y: 4
-      width: 125
+      width: 129
       height: 120
     spriteID: 209418f472528014b8a5672f1e1fa5b8
     spriteBone: []

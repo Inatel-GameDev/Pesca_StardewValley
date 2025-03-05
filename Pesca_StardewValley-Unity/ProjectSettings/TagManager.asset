@@ -8,6 +8,9 @@ TagManager:
   - Down
   - Hook
   - Peixe
+  - Agua
+  - Palanque
+  - Pedra
   layers:
   - Default
   - TransparentFX
@@ -17,8 +20,8 @@ TagManager:
   - UI
   - box
   - isca
-  - 
-  - 
+  - palanque
+  - pedra
   - 
   - 
   - 

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     [SerializeField] public GameObject hookPrefab;
+    [SerializeField] public GameObject boiaPrefab;
     private Animator anim;
 
     public string idle = "IDLE";
@@ -14,9 +15,17 @@ public class Player : MonoBehaviour
     public float money;
     public Text moneyUI;
 
+    //Variaveis novas
+    public Vector2 movement;
+    public float moveSpeed = 3f;
+    public Rigidbody2D rb;
+    public float gerarPesca; //determina a posição do minigame
+    public float gerarBoia; //determina a posição da boia
+
     void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
         PlayAnimation(idle);
         money = 0f;
     }
@@ -28,6 +37,39 @@ public class Player : MonoBehaviour
 
         anim.Play(animation);
         StartCoroutine(WaitForAnimation(animation));
+    }
+
+    public void Andar()
+    {
+        //Input
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if(movement.x > 0)
+        {
+            transform.localScale = new Vector3(1, 1, 1);
+            gerarPesca = -2f; //gera na esquerda
+            gerarBoia = 3f; 
+        }
+        else if(movement.x < 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+            gerarPesca = 2f; //gera na direita
+            gerarBoia = -3f;
+        }
+
+        //Animação
+        if (movement.x != 0 || movement.y != 0)
+        {
+            //INSERIR AQUI AS ANIMAÇÕES DE ANDAR E IDLE
+            //INSERIR AQUI AS ANIMAÇÕES DE ANDAR E IDLE
+        }
+        else
+        {
+        
+        }
+
     }
 
     IEnumerator WaitForAnimation(string animation)
@@ -50,8 +92,13 @@ public class Player : MonoBehaviour
         {
             isFishing = true;
             PlayAnimation(trowHook);
-            Instantiate(hookPrefab, new Vector3(2.5f,0,0), Quaternion.identity);
+            Instantiate(boiaPrefab, new Vector3(gerarBoia, (rb.position.y - 0.5f), 0), Quaternion.identity);
+            Instantiate(hookPrefab, new Vector3(gerarPesca,1,0), Quaternion.identity);
         }
         moneyUI.text = "R$"+ money.ToString("F2");
+
+        if(!isFishing){
+            Andar();
+        }
     }
 }
