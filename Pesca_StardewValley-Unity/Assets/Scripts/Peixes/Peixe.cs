@@ -149,6 +149,13 @@ public class Peixe : MonoBehaviour
     {
         if (collision.gameObject.tag == "Hook")
         {
+            Debug.Log("🐟 Peixe colidiu com o Hook! Iniciando pesca...");
+
+            if (progressBar.value == 0)
+            {
+                progressBar.value = 0.2f; // Garante que a pesca começa e não é cancelada imediatamente
+            }
+
             if (fishes[randomFish].classFish == "Crazy")
             {
                 if (crazyIwasCrazyOnce != null)
@@ -159,19 +166,11 @@ public class Peixe : MonoBehaviour
                 if (weightFish != null)
                     weightFish.startTriggerFish();
             }
+
             StartCoroutine(progressUp());
         }
-        if (collision.gameObject.tag == "Down")
-        {
-            Vector2 direction = collision.transform.position - transform.position;
-            rb.linearVelocityY = upDownSecurity;
-        }
-        else if (collision.gameObject.tag == "Up")
-        {
-            Vector2 direction = collision.transform.position - transform.position;
-            rb.linearVelocityY = -upDownSecurity;
-        }
     }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Hook")

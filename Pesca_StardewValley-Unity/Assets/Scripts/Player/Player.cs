@@ -15,13 +15,12 @@ public class Player : MonoBehaviour
     public float money;
     public Text moneyUI;
 
-    //Variaveis novas
     public Vector2 movement;
     public float moveSpeed = 3f;
     public Rigidbody2D rb;
-    public float gerarPesca; //determina a posição do minigame
-    public float gerarBoia; //determina a posição da boia
-    public Boia boia;
+    public float gerarPesca;
+    public float gerarBoia;
+    private Boia boia;
 
     void Start()
     {
@@ -34,7 +33,7 @@ public class Player : MonoBehaviour
     public void PlayAnimation(string animation)
     {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName(animation))
-            return; // Evita que a mesma animação seja reproduzida repetidamente
+            return;
 
         anim.Play(animation);
         StartCoroutine(WaitForAnimation(animation));
@@ -42,78 +41,110 @@ public class Player : MonoBehaviour
 
     public void Andar()
     {
-        //Input
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        if(movement.x >= 0)
+
+        if (movement.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
-            gerarPesca = -2f; //gera na esquerda
-            gerarBoia = 3f; 
+            gerarPesca = transform.position.x + 1.5f;
+            gerarBoia = transform.position.x + 1.5f;
         }
-        else if(movement.x < 0)
+        else if (movement.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-            gerarPesca = 2f; //gera na direita
-            gerarBoia = -3f;
+            gerarPesca = transform.position.x - 1.5f;
+            gerarBoia = transform.position.x - 1.5f;
         }
-
-        //Animação
-        if (movement.x != 0 || movement.y != 0)
-        {
-            //INSERIR AQUI AS ANIMAÇÕES DE ANDAR E IDLE
-            //INSERIR AQUI AS ANIMAÇÕES DE ANDAR E IDLE
-        }
-        else
-        {
-        
-        }
-
     }
 
     IEnumerator WaitForAnimation(string animation)
     {
-        yield return new WaitForEndOfFrame(); // Espera um frame para garantir que a animação foi ativada
+        yield return new WaitForEndOfFrame();
         AnimatorStateInfo stateInfo = anim.GetCurrentAnimatorStateInfo(0);
         yield return new WaitForSeconds(stateInfo.length);
 
-        // Aqui você pode fazer algo após a animação acabar
         if (animation == trowHook)
         {
-            PlayAnimation(fishing); // Exemplo: Mudar para estado de "pescando" após lançar o anzol
+            PlayAnimation(fishing);
         }
     }
-    
+
     public void comecaPescar()
     {
-        PlayAnimation(trowHook);
-        Instantiate(hookPrefab, new Vector3(gerarPesca, 1, 0), Quaternion.identity);
+        Debug.Log("✅ comecaPescar() foi chamado! Criando a isca...");
+
+        GameObject hookObj = Instantiate(hookPrefab, new Vector3(gerarPesca, transform.position.y, 0), Quaternion.identity);
+
+        if (hookObj == null)
+        {
+            Debug.LogError("❌ ERRO: HookPrefab não foi instanciado corretamente!");
+            isFishing = false; // Permite que o player volte a se mover
+            return;
+        }
+
+        Debug.Log("🎣 HookPrefab criado com sucesso!");
+
+        // Se a pesca não iniciar corretamente, permitir que o player volte a se mover
+        StartCoroutine(VerificarPesca());
     }
 
-    void FixedUpdate()
+    private IEnumerator VerificarPesca()
     {
-        GameObject canvasNota = GameObject.Find("CanvasNota(Clone)");
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && !isFishing && canvasNota == null)
-        {
-            isFishing = true;
-            Instantiate(boiaPrefab, new Vector3(gerarBoia*10, (rb.position.y - 0.5f), 0), Quaternion.identity);
-            boia = GameObject.Find("Boia(Clone)").GetComponent<Boia>();
-            boia.move(gerarBoia, (rb.position.y));
-            //Debug.Log(boia.landWater());
-            //if (boia.landWater() == true)
-            //{
-            //    cPlayAnimation(trowHook);
-            //    Instantiate(hookPrefab, new Vector3(gerarPesca, 1, 0), Quaternion.identity);
-            //}
-            //else
-            //    isFishing = false;
-        }
-        moneyUI.text = "R$"+ money.ToString("F2");
+        yield return new WaitForSeconds(1f); // Dá tempo para a pesca iniciar
 
-        if(!isFishing){
+        if (!GameObject.Find("Hook(Clone)"))
+        {
+            Debug.LogError("❌ ERRO: A isca não foi instanciada corretamente, resetando isFishing.");
+            isFishing = false; // Reseta para evitar que o player fique travado
+        }
+    }
+
+
+
+
+    public void SetFishingState(bool state)
+    {
+        isFishing = state;
+        Debug.Log("🎣 isFishing agora é: " + isFishing);
+    }
+
+    void Update()
+    {
+        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && !isFishing && GameObject.Find("CanvasNota(Clone)") == null)
+        {
+            Debug.Log("🎯 Tentando iniciar a pesca...");
+
+            isFishing = true; // Agora ele já marca que está pescando, evitando cliques múltiplos
+
+            GameObject boiaObj = Instantiate(boiaPrefab, new Vector3(gerarBoia, transform.position.y, 0), Quaternion.identity);
+            if (boiaObj == null)
+            {
+                Debug.LogError("❌ ERRO: BoiaPrefab não foi instanciado!");
+                isFishing = false; // Reseta caso falhe
+                return;
+            }
+
+            boia = boiaObj.GetComponent<Boia>();
+            if (boia == null)
+            {
+                Debug.LogError("❌ ERRO: O objeto Boia não tem o script Boia.cs anexado!");
+                isFishing = false;
+                return;
+            }
+
+            boia.Inicializar(this);
+            Debug.Log("🎣 Boia instanciada com sucesso!");
+        }
+
+        moneyUI.text = "R$" + money.ToString("F2");
+
+        if (!isFishing)
+        {
             Andar();
         }
     }
+
 }
