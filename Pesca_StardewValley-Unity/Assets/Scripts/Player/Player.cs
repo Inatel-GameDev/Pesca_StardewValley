@@ -49,13 +49,13 @@ public class Player : MonoBehaviour
         if (movement.x > 0)
         {
             transform.localScale = new Vector3(1, 1, 1);
-            gerarPesca = transform.position.x + 1.5f;
+            gerarPesca = transform.position.x - 3f;
             gerarBoia = transform.position.x + 1.5f;
         }
         else if (movement.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
-            gerarPesca = transform.position.x - 1.5f;
+            gerarPesca = transform.position.x + 3f;
             gerarBoia = transform.position.x - 1.5f;
         }
     }
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("✅ comecaPescar() foi chamado! Criando a isca...");
 
-        GameObject hookObj = Instantiate(hookPrefab, new Vector3(gerarPesca, transform.position.y, 0), Quaternion.identity);
+        GameObject hookObj = Instantiate(hookPrefab, new Vector3(gerarPesca, 0, 0), Quaternion.identity);
 
         if (hookObj == null)
         {
