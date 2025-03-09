@@ -22,12 +22,20 @@ public class Player : MonoBehaviour
     public float gerarBoia;
     private Boia boia;
 
+    public Slider forcaVara;
+    public float valorForca;
+    public float posicaoBoia;
+
     void Start()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         PlayAnimation(idle);
         money = 0f;
+
+        forcaVara.value = 0.1f;
+        valorForca = 0.02f;
+        forcaVara.gameObject.SetActive(false);
     }
 
     public void PlayAnimation(string animation)
@@ -50,13 +58,18 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1);
             gerarPesca = transform.position.x - 3f;
-            gerarBoia = transform.position.x + 1.5f;
+            posicaoBoia = 5f;
+            forcaVara.direction = Slider.Direction.LeftToRight;
         }
         else if (movement.x < 0)
         {
             transform.localScale = new Vector3(-1, 1, 1);
             gerarPesca = transform.position.x + 3f;
-            gerarBoia = transform.position.x - 1.5f;
+            posicaoBoia = -5f;
+            forcaVara.direction = Slider.Direction.RightToLeft;
+        }
+        else{
+            gerarPesca = transform.position.x - 3f;
         }
     }
 
@@ -97,13 +110,9 @@ public class Player : MonoBehaviour
 
         if (!GameObject.Find("Hook(Clone)"))
         {
-            Debug.LogError("❌ ERRO: A isca não foi instanciada corretamente, resetando isFishing.");
             isFishing = false; // Reseta para evitar que o player fique travado
         }
     }
-
-
-
 
     public void SetFishingState(bool state)
     {
@@ -111,15 +120,38 @@ public class Player : MonoBehaviour
         Debug.Log("🎣 isFishing agora é: " + isFishing);
     }
 
+    void FixedUpdate(){
+        if (Input.GetKey(KeyCode.Mouse0) && !isFishing)
+        {
+           forcaVara.gameObject.SetActive(true);
+           forcaVara.value = forcaVara.value + valorForca;
+
+           if(forcaVara.value >= 1)
+           {
+               valorForca = -0.02f;
+           }
+
+           else if(forcaVara.value <= 0)
+           {
+               valorForca = 0.02f;
+           }
+        }
+    }
+
     void Update()
     {
-        if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)) && !isFishing && GameObject.Find("CanvasNota(Clone)") == null)
-        {
-            Debug.Log("🎯 Tentando iniciar a pesca...");
+        
+        if(Input.GetKeyUp(KeyCode.Mouse0)){
 
             isFishing = true; // Agora ele já marca que está pescando, evitando cliques múltiplos
 
+            gerarBoia = transform.position.x + (forcaVara.value * posicaoBoia); //gera a boia
+            forcaVara.gameObject.SetActive(false); //some o slider 
+
+            Debug.Log("🎯 Tentando iniciar a pesca...");
+
             GameObject boiaObj = Instantiate(boiaPrefab, new Vector3(gerarBoia, transform.position.y, 0), Quaternion.identity);
+
             if (boiaObj == null)
             {
                 Debug.LogError("❌ ERRO: BoiaPrefab não foi instanciado!");
@@ -134,9 +166,11 @@ public class Player : MonoBehaviour
                 isFishing = false;
                 return;
             }
+            
 
             boia.Inicializar(this);
             Debug.Log("🎣 Boia instanciada com sucesso!");
+            forcaVara.value = 0.1f;
         }
 
         moneyUI.text = "R$" + money.ToString("F2");
