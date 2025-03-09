@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     public float valorForca;
     public float posicaoBoia;
 
+    //Perfect
+    public GameObject perfect;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -121,7 +123,7 @@ public class Player : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if (Input.GetKey(KeyCode.Mouse0) && !isFishing)
+        if (Input.GetKey(KeyCode.Mouse0) && !isFishing && GameObject.Find("CanvasNota(Clone)") == null)
         {
            forcaVara.gameObject.SetActive(true);
            forcaVara.value = forcaVara.value + valorForca;
@@ -144,6 +146,9 @@ public class Player : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Mouse0)){
 
             isFishing = true; // Agora ele já marca que está pescando, evitando cliques múltiplos
+            Debug.Log("Força: " + forcaVara.value);
+            if (forcaVara.value > 0.80f)
+                perfect.SetActive(true);
 
             gerarBoia = transform.position.x + (forcaVara.value * posicaoBoia); //gera a boia
             forcaVara.gameObject.SetActive(false); //some o slider 
