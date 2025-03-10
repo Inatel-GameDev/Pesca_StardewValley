@@ -29,6 +29,10 @@ public class Player : MonoBehaviour
     //Perfect
     public GameObject perfect;
     public bool podeAndar = true;
+    private int prizeDraw = 0;
+
+
+    public string rarity;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -121,7 +125,7 @@ public class Player : MonoBehaviour
     public void SetFishingState(bool state)
     {
         isFishing = state;
-        Debug.Log("🎣 isFishing agora é: " + isFishing);
+        //Debug.Log("🎣 isFishing agora é: " + isFishing);
     }
 
     void FixedUpdate(){
@@ -148,13 +152,59 @@ public class Player : MonoBehaviour
 
             isFishing = true; // Agora ele já marca que está pescando, evitando cliques múltiplos
             Debug.Log("Força: " + forcaVara.value);
-            if (forcaVara.value > 0.80f)
+            if (forcaVara.value > 0.85f)
                 perfect.SetActive(true);
+            prizeDraw = Random.Range(1, 101);
+            Debug.Log("prizeDeaw: " + prizeDraw);
+            if (forcaVara.value < 0.25f)
+            {
+                if(prizeDraw < 70)
+                    rarity = "Comum";
+                else if(70 <= prizeDraw && prizeDraw < 90)
+                    rarity = "Raro";
+                else if (90 <= prizeDraw && prizeDraw < 100)
+                    rarity = "Épico";
+                if (prizeDraw == 100)
+                    rarity = "Lendário";
+            }
+            else if(0.25f <= forcaVara.value && forcaVara.value < 0.5f)
+            {
+                if (prizeDraw < 60)
+                    rarity = "Comum";
+                else if (60 <= prizeDraw && prizeDraw < 75)
+                    rarity = "Raro";
+                else if (80 <= prizeDraw && prizeDraw < 96)
+                    rarity = "Épico";
+                if (96 <= prizeDraw)
+                    rarity = "Lendário";
+            }
+            else if (0.5f <= forcaVara.value && forcaVara.value < 0.75f)
+            {
+                if (prizeDraw < 50)
+                    rarity = "Comum";
+                else if (50 <= prizeDraw && prizeDraw < 70)
+                    rarity = "Raro";
+                else if (70 <= prizeDraw && prizeDraw < 92)
+                    rarity = "Épico";
+                if (92 <= prizeDraw)
+                    rarity = "Lendário";
+            }
+            else if (0.75f <= forcaVara.value && forcaVara.value < 1)
+            {
+                if (prizeDraw < 40)
+                    rarity = "Comum";
+                else if (40 <= prizeDraw && prizeDraw < 65)
+                    rarity = "Raro";
+                else if (65 <= prizeDraw && prizeDraw < 88)
+                    rarity = "Épico";
+                if (88 <= prizeDraw)
+                    rarity = "Lendário";
+            }
 
-            gerarBoia = transform.position.x + (forcaVara.value * posicaoBoia); //gera a boia
+                gerarBoia = transform.position.x + (forcaVara.value * posicaoBoia); //gera a boia
             forcaVara.gameObject.SetActive(false); //some o slider 
 
-            Debug.Log("🎯 Tentando iniciar a pesca...");
+            //Debug.Log("🎯 Tentando iniciar a pesca...");
 
             GameObject boiaObj = Instantiate(boiaPrefab, new Vector3(gerarBoia, transform.position.y, 0), Quaternion.identity);
 
@@ -175,7 +225,7 @@ public class Player : MonoBehaviour
             
 
             boia.Inicializar(this);
-            Debug.Log("🎣 Boia instanciada com sucesso!");
+            //Debug.Log("🎣 Boia instanciada com sucesso!");
             forcaVara.value = 0.1f;
         }
 

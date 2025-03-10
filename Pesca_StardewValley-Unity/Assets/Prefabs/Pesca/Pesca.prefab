@@ -1208,27 +1208,32 @@ MonoBehaviour:
   inventory: {fileID: 0}
   player: {fileID: 0}
   nota: {fileID: 0}
+  randomFish: 0
   fishName:
   - "Vegetti Cabe\xE7udo"
   - Mini Good
   - Lambari
   - Baiacu
   - Piranha
+  - Good
   fishesImages:
   - {fileID: -3342433090404875214, guid: 810acf35f8408504e8b4e065a5b3738f, type: 3}
   - {fileID: -7529463495887699956, guid: 455d1d85f4043e545875cadd31226a8b, type: 3}
   - {fileID: 1426126370454856361, guid: 0116f4d682269a34eaef169767663028, type: 3}
   - {fileID: -2448948093130440576, guid: 2ed68e8233a172547a6f44a704aba111, type: 3}
   - {fileID: 177387851383668076, guid: cb27d86d0c52b174ba54209746a3b777, type: 3}
+  - {fileID: 6256978819795432554, guid: 745f34ae81b6d434e9b82bd6cb5b97a1, type: 3}
   fishesText:
-  - Peixe que carrega o "Gigante da Colina" nas costas $50,00
+  - Peixe que carrega o "Gigante da Colina" nas costas \nValor:$50,00
   - "Parece um mini tubar\xE3o mas tem uma estranha atra\xE7\xE3o por ma\xE7\xE3s
-    e pela cor amarela $40,00"
-  - Um pequeno peixe leve e tranqulo $35,00
+    e pela cor amarela \\nValor:$40,00"
+  - Um pequeno peixe leve e tranqulo \nValor:$35,00
   - "Esse peixe al\xE9m de ser leve ainda flutua muito devido a sua habilidade de
-    inflar R$50,00"
+    inflar \\nValor:R$50,00"
   - "Esse peixe \xE9 \"INSANO\" ele nem tem carne direito mas seu valor \xE9 elevado
-    devido a dificuldade de pescalo R$70,00"
+    devido a dificuldade de pescalo \\nValor:R$70,00"
+  - "Voc\xEA pegou um peixe LEND\xC1RIO par\xE1bens, esse peixe \xE9 maluco, atira
+    para todo lado e nunca est\xE1 satisfeito \\nValor: R$200,00"
   progressBar: {fileID: 6001492584924159919}
 --- !u!50 &414326932011326807
 Rigidbody2D:

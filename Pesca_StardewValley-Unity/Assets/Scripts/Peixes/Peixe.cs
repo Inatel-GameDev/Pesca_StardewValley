@@ -1,4 +1,5 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,8 +19,7 @@ public class Peixe : MonoBehaviour
     [SerializeField] public NotaDePesca nota;
     CrazyFish crazyIwasCrazyOnce;
     WeightFish weightFish;
-    int randomFish;
-
+    public int randomFish;
     // Os fishs
     [SerializeField] public GenericalFish[] fishes = new GenericalFish[]
         {
@@ -27,7 +27,8 @@ public class Peixe : MonoBehaviour
             new GenericalFish("Good",5,"Heavy",30,30,0.2f,"Weight",40),
             new GenericalFish("Lambari", 1,"Float",5,20,0.1f,"Weight",35),
             new GenericalFish("Baiacu",15,"Float",1.5f,30,0.01f,"Weight",50),
-            new GenericalFish("Piranha",25, "Float",13.7f,70,0.4f,"Weight",70)
+            new GenericalFish("Piranha",25, "Float",13.7f,70,0.4f,"Weight",70),
+            new GenericalFish("Good", 20, "Heavy", 28.5f,40,0.4f,"Weight", 200)
         };
     [SerializeField] public string[] fishName;
     [SerializeField] public Sprite[] fishesImages;
@@ -49,10 +50,30 @@ public class Peixe : MonoBehaviour
 
         // Sorteio? Que sorteio? de qual peixe vai ser
         // Peixe 0 = Crazy fish - Peixe 1 = Weight fish
-        randomFish = Random.Range(0, fishes.Length);
 
-        // Agora podemos inicializar os valores
-        crazyIwasCrazyOnce.Setup(fishes[randomFish], rb);
+        if(player.rarity == "Comum")
+        {
+            Debug.Log("Comum");
+            randomFish = Random.Range(0, 3);
+        }
+        else if(player.rarity == "Raro")
+        {
+            Debug.Log("Raro");
+            randomFish = Random.Range(3, 3);
+        }
+        else if (player.rarity == "Épico")
+        {
+            Debug.Log("Épico");
+            randomFish = Random.Range(4, 4);
+        }
+        else if (player.rarity == "Lendário")
+        {
+            Debug.Log("Lendário");
+            randomFish = Random.Range(5, 5);
+        }
+
+            // Agora podemos inicializar os valores
+            crazyIwasCrazyOnce.Setup(fishes[randomFish], rb);
         weightFish.Setup(fishes[randomFish], rb); // Vai ser o good peixe tubarãO
     }
 

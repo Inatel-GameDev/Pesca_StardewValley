@@ -27,7 +27,7 @@ public class Boia : MonoBehaviour
 
         if (!hitSolidObject && collision.gameObject.name == "Água")
         {
-            Debug.Log("✅ Boia tocou na água! Tentando iniciar a pesca...");
+            //Debug.Log("✅ Boia tocou na água! Tentando iniciar a pesca...");
             StartCoroutine(IniciarPesca());
         }
     }
@@ -38,7 +38,7 @@ public class Boia : MonoBehaviour
 
         if (!onceFishing)
         {
-            Debug.Log("🎣 CHAMANDO comecaPescar()...");
+            //Debug.Log("🎣 CHAMANDO comecaPescar()...");
             onceFishing = true;
             player.SetFishingState(true);
             player.comecaPescar();
