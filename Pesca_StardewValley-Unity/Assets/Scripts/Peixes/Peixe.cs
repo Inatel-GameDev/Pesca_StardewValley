@@ -23,12 +23,12 @@ public class Peixe : MonoBehaviour
     // Os fishs
     [SerializeField] public GenericalFish[] fishes = new GenericalFish[]
         {
-            new GenericalFish("Vegetty Cabeçudo",5,"Heavy",30,30,0.2f,"Crazy",50),
+            new GenericalFish("Vegetty Cabeçudo",20,"Heavy",30,45,0.2f,"Crazy",50),
             new GenericalFish("Good",5,"Heavy",30,30,0.2f,"Weight",40),
-            new GenericalFish("Lambari", 1,"Float",5,20,0.1f,"Weight",35),
-            new GenericalFish("Baiacu",15,"Float",1.5f,30,0.01f,"Weight",50),
-            new GenericalFish("Piranha",25, "Float",13.7f,70,0.4f,"Weight",70),
-            new GenericalFish("Good", 20, "Heavy", 28.5f,40,0.4f,"Weight", 200)
+            new GenericalFish("Lambari", 5,"Float",5,30,0.1f,"Weight",35),
+            new GenericalFish("Baiacu",30,"Float",1.5f,50,0.1f,"Weight",50),
+            new GenericalFish("Piranha",45, "Float",13.7f,85,0.7f,"Weight",70),
+            new GenericalFish("Good", 60, "Heavy", 28.5f,100,0.9f,"Weight", 200)
         };
     [SerializeField] public string[] fishName;
     [SerializeField] public Sprite[] fishesImages;
@@ -215,7 +215,7 @@ public class Peixe : MonoBehaviour
         StopCoroutine("progressDown");
         if (progressBar.value < 1)
         {
-            progressBar.value += 0.018f;
+            progressBar.value += 0.02f;
             yield return new WaitForSeconds(0.1f);
             StartCoroutine("progressUp");
         }
@@ -227,7 +227,7 @@ public class Peixe : MonoBehaviour
         StopCoroutine("progressUp");
         if (progressBar.value > 0)
         {
-            progressBar.value -= 0.03f;
+            progressBar.value -= 0.025f;
             yield return new WaitForSeconds(0.15f);
             StartCoroutine("progressDown");
         }

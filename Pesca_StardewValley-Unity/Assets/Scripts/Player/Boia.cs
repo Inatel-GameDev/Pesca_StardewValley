@@ -18,6 +18,7 @@ public class Boia : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Palanque"))
         {
+            player.podeAndar = true;
             Debug.Log("🛑 Boia caiu no palanque! Cancelando pesca.");
             player.SetFishingState(false);
             hitSolidObject = true;

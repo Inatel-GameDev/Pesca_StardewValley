@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         money = 0f;
 
         forcaVara.value = 0.1f;
-        valorForca = 0.02f;
+        valorForca = 0.005f;
         forcaVara.gameObject.SetActive(false);
     }
 
@@ -136,12 +136,12 @@ public class Player : MonoBehaviour
            podeAndar = false;
            if(forcaVara.value >= 1)
            {
-               valorForca = -0.02f;
+               valorForca = -0.005f;
            }
 
            else if(forcaVara.value <= 0)
            {
-               valorForca = 0.02f;
+               valorForca = 0.005f;
            }
         }
     }
