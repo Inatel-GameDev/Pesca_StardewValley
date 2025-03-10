@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
 
     //Perfect
     public GameObject perfect;
+    public bool podeAndar = true;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -72,6 +73,7 @@ public class Player : MonoBehaviour
         }
         else{
             gerarPesca = transform.position.x - 3f;
+            posicaoBoia = 5f;
         }
     }
 
@@ -123,11 +125,11 @@ public class Player : MonoBehaviour
     }
 
     void FixedUpdate(){
-        if (Input.GetKey(KeyCode.Mouse0) && !isFishing && GameObject.Find("CanvasNota(Clone)") == null)
+        if (Input.GetKey(KeyCode.Mouse0) && !isFishing && GameObject.Find("CanvasNota(Clone)") == null && GameObject.Find("Pesca(Clone)") == null)
         {
            forcaVara.gameObject.SetActive(true);
            forcaVara.value = forcaVara.value + valorForca;
-
+           podeAndar = false;
            if(forcaVara.value >= 1)
            {
                valorForca = -0.02f;
@@ -142,8 +144,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        
-        if(Input.GetKeyUp(KeyCode.Mouse0)){
+        if (Input.GetKeyUp(KeyCode.Mouse0)){
 
             isFishing = true; // Agora ele já marca que está pescando, evitando cliques múltiplos
             Debug.Log("Força: " + forcaVara.value);
@@ -180,7 +181,7 @@ public class Player : MonoBehaviour
 
         moneyUI.text = "R$" + money.ToString("F2");
 
-        if (!isFishing)
+        if (!isFishing && podeAndar)
         {
             Andar();
         }

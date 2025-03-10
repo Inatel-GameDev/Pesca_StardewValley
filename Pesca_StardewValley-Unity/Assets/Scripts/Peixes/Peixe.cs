@@ -106,6 +106,7 @@ public class Peixe : MonoBehaviour
             player.PlayAnimation(player.idle);
             inventory.AddFish();
             player.isFishing = false;
+            player.podeAndar = true;
             if (boiaInstance != null)
             {
                 Destroy(boiaInstance);
