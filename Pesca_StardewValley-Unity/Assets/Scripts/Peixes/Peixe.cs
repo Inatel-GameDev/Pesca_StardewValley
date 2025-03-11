@@ -94,6 +94,9 @@ public class Peixe : MonoBehaviour
             Instantiate(notaPrefab, new Vector3(0, 3f, 0), Quaternion.identity);
             if (player.firstNote)
             {
+                player.money += fishes[randomFish].price;
+                player.PlayAnimation(player.idle);
+                inventory.AddFish();
                 AtivarObjetosPorTempo(player.tuturialInteract, player.blackout, 5);
                 player.firstNote = false;
             }
