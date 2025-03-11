@@ -607,6 +607,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &340951880
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.8445263
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.045857
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773117549287611927, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_Name
+      value: AguaPula (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
 --- !u!1 &358016516
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,6 +858,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &411791750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.8542805
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0974027
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773117549287611927, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_Name
+      value: AguaPula (3)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
 --- !u!1 &411841647
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1567,8 @@ RectTransform:
   m_Children:
   - {fileID: 1288197289}
   - {fileID: 980767041}
+  - {fileID: 2056735618}
+  - {fileID: 975908345}
   m_Father: {fileID: 231511834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1580,6 +1696,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871670120}
   m_CullTransparentMesh: 1
+--- !u!1 &975908344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975908345}
+  - component: {fileID: 975908347}
+  - component: {fileID: 975908346}
+  m_Layer: 5
+  m_Name: TuturialInteract
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &975908345
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975908344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 697788206}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 71, y: 169}
+  m_SizeDelta: {x: 1498.05, y: 575.95}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &975908346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975908344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 150
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 150
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Use o bot\xE3o direito do mouse para retirar a nota"
+--- !u!222 &975908347
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975908344}
+  m_CullTransparentMesh: 1
 --- !u!1 &980767040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,7 +1845,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Para pescar aperte o bot\xE3o direito do mouse"
+  m_Text: "Para pescar aperte o bot\xE3o esquerdo do mouse"
 --- !u!222 &980767043
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1856,11 +2051,16 @@ MonoBehaviour:
   forcaVara: {fileID: 222207799}
   valorForca: 0
   posicaoBoia: 0
+  firstTimeFishing: 1
+  firstNote: 1
+  firstTutu: 1
   perfect: {fileID: 411841647}
   podeAndar: 1
   blackout: {fileID: 1082794286}
   bemVindo: {fileID: 1288197288}
-  jogaVara: {fileID: 0}
+  jogaVara: {fileID: 980767040}
+  tuturialPesca: {fileID: 2056735617}
+  tuturialInteract: {fileID: 975908344}
   rarity: 
 --- !u!114 &1261222972
 MonoBehaviour:
@@ -2056,7 +2256,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bem Vindo ao Jogo
+  m_Text: Bem Vindo ao FishingValley
 --- !u!222 &1288197291
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2065,6 +2265,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288197288}
   m_CullTransparentMesh: 1
+--- !u!1001 &1292811237
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.067649
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2031262
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773117549287611927, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_Name
+      value: AguaPula (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
 --- !u!1 &1463068560
 GameObject:
   m_ObjectHideFlags: 0
@@ -4224,7 +4481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1785834298
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4355,7 +4612,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 98abdd5607f5a7a4694f07aeb1a447ed, type: 3}
   m_Resource: {fileID: 8300000, guid: 98abdd5607f5a7a4694f07aeb1a447ed, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.735
+  m_Volume: 0.27
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4763,7 +5020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1905863453
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4876,6 +5133,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1912692827
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.1983345
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.900803
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773117549287611927, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_Name
+      value: AguaPula (4)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
 --- !u!1 &1948031285
 GameObject:
   m_ObjectHideFlags: 0
@@ -5193,6 +5507,85 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 3
   m_TargetDisplay: 0
+--- !u!1 &2056735617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2056735618}
+  - component: {fileID: 2056735620}
+  - component: {fileID: 2056735619}
+  m_Layer: 5
+  m_Name: TuturialPesca
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2056735618
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056735617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 697788206}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1498.05, y: 575.95}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2056735619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056735617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 150
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 1
+    m_MaxSize: 150
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Use barra de espa\xE7o para pegar o peixe"
+--- !u!222 &2056735620
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056735617}
+  m_CullTransparentMesh: 1
 --- !u!1 &2121946110
 GameObject:
   m_ObjectHideFlags: 0
@@ -5297,6 +5690,63 @@ MonoBehaviour:
   inventory: {fileID: 1261222972}
   numPeixes: {fileID: 1898730150}
   fishCount: 0
+--- !u!1001 &895569553399052562
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294988454063172278, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773117549287611927, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
+      propertyPath: m_Name
+      value: AguaPula
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b6b37a07f4c319d4cb699cbfe5584945, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -5310,3 +5760,8 @@ SceneRoots:
   - {fileID: 764479302}
   - {fileID: 1832382405}
   - {fileID: 231511834}
+  - {fileID: 895569553399052562}
+  - {fileID: 1292811237}
+  - {fileID: 340951880}
+  - {fileID: 411791750}
+  - {fileID: 1912692827}

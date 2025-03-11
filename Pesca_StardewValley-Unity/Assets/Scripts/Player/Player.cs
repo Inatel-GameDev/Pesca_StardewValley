@@ -26,6 +26,10 @@ public class Player : MonoBehaviour
     public float valorForca;
     public float posicaoBoia;
 
+    public bool firstTimeFishing = true;
+    public bool firstNote = true;
+    public bool firstTutu = true;
+
     //Perfect
     public GameObject perfect;
     public bool podeAndar = true;
@@ -34,7 +38,10 @@ public class Player : MonoBehaviour
     public GameObject blackout;
     public GameObject bemVindo;
     public GameObject jogaVara;
-    
+
+    public GameObject tuturialPesca;
+    public GameObject tuturialInteract;
+
 
     public string rarity;
     void Start()

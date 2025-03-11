@@ -19,6 +19,7 @@ public class Peixe : MonoBehaviour
     CrazyFish crazyIwasCrazyOnce;
     WeightFish weightFish;
     public int randomFish;
+
     // Os fishs
     [SerializeField] public GenericalFish[] fishes = new GenericalFish[]
         {
@@ -47,10 +48,16 @@ public class Peixe : MonoBehaviour
         crazyIwasCrazyOnce = new GameObject("CrazyFish").AddComponent<CrazyFish>();
         weightFish = new GameObject("WeightFish").AddComponent<WeightFish>();
 
+
         // Sorteio? Que sorteio? de qual peixe vai ser
         // Peixe 0 = Crazy fish - Peixe 1 = Weight fish
 
-        if(player.rarity == "Comum")
+        if (player.firstTimeFishing)
+        {
+            AtivarObjetosPorTempo(player.tuturialPesca, player.blackout, 5);
+            player.firstTimeFishing = false;
+        }
+        if (player.rarity == "Comum")
         {
             Debug.Log("Comum");
             randomFish = Random.Range(0, 3);
@@ -85,6 +92,11 @@ public class Peixe : MonoBehaviour
         if (progressBar.value == 1 && !notaOn)
         {
             Instantiate(notaPrefab, new Vector3(0, 3f, 0), Quaternion.identity);
+            if (player.firstNote)
+            {
+                AtivarObjetosPorTempo(player.tuturialInteract, player.blackout, 5);
+                player.firstNote = false;
+            }
         }
 
         // Se o progresso for 0, finaliza a pesca e destrói os objetos
@@ -92,7 +104,7 @@ public class Peixe : MonoBehaviour
         {
             player.PlayAnimation(player.idle);
             player.isFishing = false;
-
+            player.podeAndar = true;
             // Destroi a boia apenas se a referência não for nula
             if (boiaInstance != null)
             {
@@ -122,17 +134,31 @@ public class Peixe : MonoBehaviour
         }
         if (progressBar.value == 1)
         {
-            player.money += fishes[randomFish].price;
-            player.PlayAnimation(player.idle);
-            inventory.AddFish();
             player.isFishing = false;
             player.podeAndar = true;
             if (boiaInstance != null)
             {
                 Destroy(boiaInstance);
             }
-            Destroy(hookPrefab);
+            if (player.firstTutu)
+            {
+                StartCoroutine(destroyDelay());
+            }
+            else
+            {
+                player.money += fishes[randomFish].price;
+                player.PlayAnimation(player.idle);
+                inventory.AddFish();
+                Destroy(hookPrefab);
+            }
         }
+    }
+
+    private IEnumerator destroyDelay()
+    {
+        yield return new WaitForSecondsRealtime(6);
+        player.firstTutu = false;
+        Destroy(hookPrefab);
     }
 
     // Update is called once per frame
@@ -231,6 +257,31 @@ public class Peixe : MonoBehaviour
             StartCoroutine("progressDown");
         }
         yield return new WaitForSeconds(0);
+    }
+
+    public void AtivarObjetosPorTempo(GameObject obj1, GameObject obj2, float tempo)
+    {
+        StartCoroutine(Temporizador(obj1, obj2, tempo));
+    }
+
+    private IEnumerator Temporizador(GameObject obj1, GameObject obj2, float tempo)
+    {
+        // Ativa os objetos
+        obj1.SetActive(true);
+        obj2.SetActive(true);
+
+        // Pausa o tempo
+        Time.timeScale = 0;
+
+        // Espera pelo tempo especificado (usando tempo real para ignorar o Time.timeScale = 0)
+        yield return new WaitForSecondsRealtime(tempo);
+
+        // Desativa os objetos
+        obj1.SetActive(false);
+        obj2.SetActive(false);
+
+        // Retorna o tempo ao normal
+        Time.timeScale = 1;
     }
 
 }
