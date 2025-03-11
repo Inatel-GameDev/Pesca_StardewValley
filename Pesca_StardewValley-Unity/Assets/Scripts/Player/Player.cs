@@ -31,6 +31,10 @@ public class Player : MonoBehaviour
     public bool podeAndar = true;
     private int prizeDraw = 0;
 
+    public GameObject blackout;
+    public GameObject bemVindo;
+    public GameObject jogaVara;
+    
 
     public string rarity;
     void Start()
@@ -43,6 +47,9 @@ public class Player : MonoBehaviour
         forcaVara.value = 0.1f;
         valorForca = 0.005f;
         forcaVara.gameObject.SetActive(false);
+
+        //Bem vindo - jogaVara
+        AtivarSequencialmente(bemVindo, blackout, 3, jogaVara, blackout, 5);
     }
 
     public void PlayAnimation(string animation)
@@ -236,5 +243,41 @@ public class Player : MonoBehaviour
             Andar();
         }
     }
+    //tuturial
+    public IEnumerator AtivarObjetosPorTempo(GameObject obj1, GameObject obj2, float tempo)
+    {
+        // Ativa os objetos
+        obj1.SetActive(true);
+        obj2.SetActive(true);
 
+        // Pausa o tempo
+        Time.timeScale = 0;
+
+        // Espera pelo tempo especificado (usando tempo real para ignorar a pausa do tempo)
+        yield return new WaitForSecondsRealtime(tempo);
+
+        // Desativa os objetos
+        obj1.SetActive(false);
+        obj2.SetActive(false);
+
+        // Retorna o tempo ao normal
+        Time.timeScale = 1;
+    }
+
+    // Função para rodar as ativações uma após a outra
+    public void AtivarSequencialmente(GameObject obj1, GameObject obj2, float tempo1, GameObject obj3, GameObject obj4, float tempo2)
+    {
+        StartCoroutine(SequenciaDeAtivacao(obj1, obj2, tempo1, obj3, obj4, tempo2));
+    }
+
+    private IEnumerator SequenciaDeAtivacao(GameObject obj1, GameObject obj2, float tempo1, GameObject obj3, GameObject obj4, float tempo2)
+    {
+        // Chama a primeira ativação e espera ela terminar
+        yield return StartCoroutine(AtivarObjetosPorTempo(obj1, obj2, tempo1));
+
+        // Agora chama a segunda ativação depois que a primeira terminou
+        yield return StartCoroutine(AtivarObjetosPorTempo(obj3, obj4, tempo2));
+    }
 }
+
+
